@@ -1,0 +1,15 @@
+.Loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: fit-content;
+  }
