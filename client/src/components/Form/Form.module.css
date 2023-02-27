@@ -25,9 +25,16 @@
         background-color: #E8D5C4;
         color: #000;
     }
+    form button:hover{
+        border: 1px solid #0099cc;
+        background-color: #00aacc;
+        color: #ffffff;
+        padding: 5px 10px;
+    }
     form button :disabled{
-        background-color: gray;
-        color: white;
+        background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
+        color: -internal-light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+        border-color: -internal-light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
     }
     .form h1{
         color: #000;
