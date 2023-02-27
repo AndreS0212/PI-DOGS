@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { useDispatch,useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { getAllTemps,createDog } from '../../redux/actions';
 import style from './Form.module.css'
 import { validate } from './validate';
@@ -7,6 +8,7 @@ import { DogPreview } from '../DogPreview/DogPreview';
 export const Form = ()=>{
     const dispatch= useDispatch()
     const temps = useSelector(state=>state.allTemperaments).sort()
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         name: "",
         min_height: '',
@@ -36,6 +38,7 @@ export const Form = ()=>{
             [e.target.name] : e.target.value //el valor del atributo modificado del estado en el form se actualizara con lo escrito en dicho campo
         });
         setErrors(validate({...form,[e.target.name] : e.target.value}))
+        
       }
       const handleSubmit = (e) =>{
         e.preventDefault()
@@ -43,6 +46,20 @@ export const Form = ()=>{
           alert('Enter all required fields')
         }
         createDog(form)
+        setForm({
+          ...form,
+          name: "",
+        min_height: '',
+        max_height:'',
+        min_life_span: '',
+        max_life_span: '',
+        image: 'https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-m.jpg?tx=w_680',
+        temperaments: [],
+        min_weight: '',
+        max_weight:''
+        });
+        alert("Breed created successfully!");
+        navigate('/home');
 
       }
       const handleChangeSel= (e)=>{
@@ -52,6 +69,7 @@ export const Form = ()=>{
                   ...form,
                   temperaments: [...form.temperaments, e.target.value]
               })
+              setErrors(validate({...form,temperaments : e.target.value}))
         }
       }
       const uploadImage = async (e) => {
@@ -83,11 +101,16 @@ export const Form = ()=>{
         }
       }  
     useEffect(() => {
+      if(!Object.values(form).some((v) => v = false)&& !Object.values(errors).some((v) => v = true)){
+        console.log(!Object.values(form).some((v) => v = false))
+        setButton(false)
+      }else if(Object.values(errors).some((v) => v = true)){
+        setButton(true)
+      }
+    }, [form])
+    useEffect(() => {
         dispatch(getAllTemps());
       }, [dispatch]);
-
-
-
     return(
         <div className={style.form}>
           <form  onSubmit={(e)=>handleSubmit(e)}>
@@ -164,7 +187,7 @@ export const Form = ()=>{
                   </div>
                 </div>
             </div>
-            <button type='submit'>Create</button>
+            <button disabled={button} type='submit'>CREATE</button>
 
           </form>
           <div className={style.dog}>

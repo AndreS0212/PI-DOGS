@@ -6,7 +6,8 @@ import {    GET_DOGS, GET_TEMPERAMENTS,
     GET_ALL_TEMPS,
     SORT_BY_NAME,
     SORT_BY_MINWEIGHT,
-    SORT_BY_MAXWEIGHT
+    SORT_BY_MAXWEIGHT,
+    SET_TEMPERAMENTS
   } from "./types";
 import axios from "axios";
 
@@ -59,6 +60,11 @@ export const sortByMaxWeight =(order)=>{
     }
 
 }
+export const setTemperaments =()=>{
+  return function(dispatch){
+     dispatch({type : SET_TEMPERAMENTS})
+  }
+}
 export const sortByMinWeight =(order)=>{
   return function(dispatch){
      dispatch({type : SORT_BY_MINWEIGHT , payload: order})
@@ -79,6 +85,7 @@ export const getTemps =()=>{
 export const createDog =async (dog)=>{
       try{
         const response = await axios.post('/dogs', dog);
+        console.log(response.data)
       }catch(error){
         alert(error.response.data)
       }

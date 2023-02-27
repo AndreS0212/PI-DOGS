@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import { PreviewTemps } from '../PreviewTemps/PreviewTemps'
 import style from './Card.module.css'
 export default function Card({id,name,image,temperaments,weight}){

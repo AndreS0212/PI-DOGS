@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { filterByTemperament } from "../../redux/actions";
 import style from "./Sidebar.module.css";
 import ByName from "./Filters/ByName";
@@ -47,7 +46,7 @@ export default function Sidebar() {
   useEffect(() => {
     dispatch(filterByTemperament(filtro));
     setPageNumber(1);
-  }, [filteredTemps]);
+  }, [filteredTemps,dispatch]);
   return (
     <div className={style.sidebar}>
       <div className={style.sidewrapper}>
@@ -67,7 +66,7 @@ export default function Sidebar() {
         </div>
         <div className={style.mobile}>
           <div className={style.filterButtonMobile}>
-            <img onClick={()=>{setIsOpen((prev)=>!prev)}} src={menu}/>
+            <button onClick={()=>{setIsOpen((prev)=>!prev)}} src={menu}>FILTERS</button>
           </div>
           {isOpen && (<div className={style.filtersMobile}>
             <div>
@@ -89,7 +88,7 @@ export default function Sidebar() {
           </div>)}
           <div className={style.buttonwrap}>
             <button className={style.clear} onClick={(e) => handleClick(e)}>
-              RESET
+              CLEAR FILTERS
             </button>
           </div>
           <div className={style.SearchBar}>

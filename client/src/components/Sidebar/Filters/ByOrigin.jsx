@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import { getDogs,sortByOrigin } from '../../../redux/actions';
 import { useDispatch } from 'react-redux';
 

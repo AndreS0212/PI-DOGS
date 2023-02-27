@@ -32,8 +32,8 @@ export default function Cards(){
     useEffect(() => {
         dispatch(getDogs());  
         const timer = setTimeout(() => {
-            setLoading(false);        console.log(allDogs)
-          }, 2500);
+            setLoading(false);
+          }, 3500);
           return () => clearTimeout(timer);  
         //para q se vea el gif de loading
 

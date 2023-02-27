@@ -4,7 +4,6 @@ import Nav from './components/Nav/Nav';
 import { Route,Routes } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage';
 import CardDetails from './components/CardDetails/CardDetails';
-import LoadingCard from './components/Loading/LoadingCard';
 import { Form } from './components/Form/Form';
 function App() {
   return (

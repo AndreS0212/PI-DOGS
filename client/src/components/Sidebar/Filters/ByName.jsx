@@ -1,16 +1,14 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import { getDogs,sortByName } from '../../../redux/actions';
 import { useDispatch } from 'react-redux';
 
 
 export default function ByName(){
     const dispatch = useDispatch();
-
-    const [order, setOrder] = useState("");
   
     useEffect(() => {
       dispatch(getDogs());
-    }, []);
+    }, [dispatch]);
   
     const HandleSort = (e) => {
       e.preventDefault();

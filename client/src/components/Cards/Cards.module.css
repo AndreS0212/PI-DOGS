@@ -1,12 +1,4 @@
-.cardContainer{
-    max-width: 100%;
-    padding: 10px 0 0 20px;
-}
-.card{
-    width: 95%;
-    padding-bottom: 5px ;
-    box-sizing: border-box;
-}
+
 @media (min-width: 640px) {
     .container{
         display: flex; 
@@ -14,10 +6,12 @@
         width: 100%;
     }
     .cardContainer{
+        margin-top: 25px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        margin-bottom: 15px;
         
     }
     .card{
@@ -25,3 +19,16 @@
         box-sizing: border-box;
     }
   }
+@media (max-width: 800px) {
+    .cardContainer{
+        max-width: 100%;
+        margin: 20px 6% 0px 5%;
+    }
+    .card{
+        width: 100%;
+        padding-bottom: 5px ;
+        box-sizing: border-box;
+    }
+
+
+}

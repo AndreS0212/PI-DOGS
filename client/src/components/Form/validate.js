@@ -1,5 +1,4 @@
 const regexNumbers = /\d$/
-const regexLs = /\d{2}$/
 const letters= /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]*$/
 export function validate(form) {
     const inputErrors = {}

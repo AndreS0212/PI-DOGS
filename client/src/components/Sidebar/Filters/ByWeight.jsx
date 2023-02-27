@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import { getDogs,sortByMaxWeight,sortByMinWeight } from '../../../redux/actions';
 export default function ByWeight(){
@@ -6,19 +6,13 @@ export default function ByWeight(){
   
     useEffect(() => {
       dispatch(getDogs());
-    }, []);
+    }, [dispatch]);
   
     const HandleSort = (e) => {
       e.preventDefault();
       if(e.target.id==='MinWeight') dispatch(sortByMinWeight(e.target.value));
       else if(e.target.id==='MaxWeight')dispatch(sortByMaxWeight(e.target.value));
     };
-
-
-
-
-
-
 
     return(
         <>
