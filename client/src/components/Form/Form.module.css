@@ -25,6 +25,10 @@
         background-color: #E8D5C4;
         color: #000;
     }
+    form button :disabled{
+        background-color: gray;
+        color: white;
+    }
     .form h1{
         color: #000;
         text-align: center;

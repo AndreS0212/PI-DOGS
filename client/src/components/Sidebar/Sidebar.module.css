@@ -104,12 +104,12 @@
     background-color: #eeeeee;
     color: #555;
     width: auto;
+    padding: 10px 20px;
   }
   .sidebar {
     height: 80px;
   }
   .sidewrapper {
-    padding: 10px 20px;
     height: fit-content;
     display: flex;
     gap: 35px;
