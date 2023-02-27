@@ -45,6 +45,10 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    p{
+        margin: 0;
+        font-size: 16px;
+    }
 }
 @media (max-width: 640px) {
     .mainContainer{
@@ -83,5 +87,9 @@
         align-items: center;
         justify-content: center;
         padding-bottom: 5px;
+    }
+    p{
+        margin: 0;
+        font-size: small;
     }
 }

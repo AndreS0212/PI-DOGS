@@ -85,9 +85,9 @@ export const getTemps =()=>{
 export const createDog =async (dog)=>{
       try{
         const response = await axios.post('/dogs', dog);
-        console.log(response.data)
+        return 'Dog created successfully'
       }catch(error){
-        alert(error.response.data)
+        return error.response.data
       }
       
         

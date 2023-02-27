@@ -19,7 +19,7 @@ export default function CardDetails(){
         <>
         {dogDetails.name ? (
             <div className={style.mainContainer}>
-              <h1 className={style.name}>  {dogDetails.name}</h1>
+              <h1 className={style.name}>  {dogDetails.name}<p>Id: {id}</p></h1>
               <div className={style.flexContainer} >
                 
                 < div className={style.imageContainer}>

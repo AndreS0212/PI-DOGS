@@ -1,7 +1,7 @@
 .card{
     width: 80%;
     margin: auto;
-    height: 450px;
+    height: 520px;
     background-color: #E8D5C4;
     padding-bottom: 10px;
     border-radius: 20px;
@@ -9,7 +9,7 @@
     position: relative;
 }
 h1{
-    font-size: large;
+    font-size: 24px;
     color: #000000;
 }
 span{
@@ -35,4 +35,8 @@ h3{
     align-items: center;
     justify-content: center;
     margin-bottom: 8px;
+}
+.container{
+    margin: 15px;
+    font-size: 22px;
 }

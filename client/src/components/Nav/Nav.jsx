@@ -8,7 +8,7 @@ export default function Nav(){
             <nav id="nav-1">
                 <div className={style.container}>
                     <Link className={style.link} to={'/home'}>Home</Link>
-                    <Link className={style.link} to={'/form'}> Create a Breed</Link>
+                    <Link className={style.link} to={'/form'}><button>Create a Dog</button></Link>
 
                 </div>
                 

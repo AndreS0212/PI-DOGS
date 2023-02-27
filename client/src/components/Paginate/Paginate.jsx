@@ -10,11 +10,11 @@ export default function Paginate({ dogsPerPage, allDogs, paginate,back,forward }
 
     return(
         <div >
-            <button onClick={() => back()} type="button">Previous</button>
+            <button className={style.buttons} onClick={() => back()} type="button">Previous</button>
                 { pageNumbers && pageNumbers.map(number => (
-                         <button onClick={() => paginate(number)} key={number}type="button">{number}</button> 
+                         <button className={style.number} onClick={() => paginate(number)} key={number}type="button">{number}</button> 
                 ))}
-            <button onClick={() => forward(Math.ceil(allDogs.length / dogsPerPage))} type="button">Next</button>
+            <button className={style.buttons} onClick={() => forward(Math.ceil(allDogs.length / dogsPerPage))} type="button">Next</button>
         </div>
     )
 }

@@ -20,18 +20,19 @@ export function validate(form) {
     if (!form.max_life_span) inputErrors.max_life_span = "You must enter a life span";
     else if (letters.test(form.max_life_span)) inputErrors.max_life_span ="Only allowed numbers"
     else if (form.max_life_span.length>=3) inputErrors.max_life_span ="Maximum 2 digits"
-    if (form.min_life_span.length && (form.min_life_span >= form.max_life_span || form.max_life_span <= form.min_life_span)) {
+    if (form.min_life_span.length && (parseInt(form.min_life_span) >= parseInt(form.max_life_span) || form.max_life_span <= form.min_life_span)) {
         inputErrors.min_life_span ="Must be lower than maximum life span";
         inputErrors.max_life_span ="Must be higher than minimum life span"
     }
-    if (form.min_weight.length && (form.min_weight >= form.max_weight || form.max_weight <= form.min_weight)) {
+    if (form.min_weight.length && (parseInt(form.min_weight) >= parseInt(form.max_weight) || parseInt(form.max_weight) <= parseInt(form.min_weight))) {
         inputErrors.min_weight ="Must be lower than maximum weight ";
         inputErrors.max_weight ="Must be higher than maximum weight ";
     }
-    if (form.min_height.length && (form.min_height >= form.max_height || form.max_height <= form.min_height)) {
+    if (form.min_height.length && (parseInt(form.min_height) >= parseInt(form.max_height) || parseInt(form.max_height) <= parseInt(form.min_height))) {
         inputErrors.min_height = "Must be lower than maximum height "
         inputErrors.max_height ="Must be higher than maximum height ";
     }
     if (!form.temperaments.length) inputErrors.temperaments = "You must select a temperament";
+    if (form.temperaments.length>10) inputErrors.temperaments = "Maximum 10 temperaments";
     return inputErrors;
     }

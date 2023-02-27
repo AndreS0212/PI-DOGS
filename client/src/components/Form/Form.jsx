@@ -40,12 +40,13 @@ export const Form = ()=>{
         setErrors(validate({...form,[e.target.name] : e.target.value}))
         
       }
-      const handleSubmit = (e) =>{
+      const handleSubmit = async (e) =>{
         e.preventDefault()
         if(Object.values(form).some((v) => v == false)){
           alert('Enter all required fields')
         }
-        createDog(form)
+        const resp = await createDog(form)
+        alert(resp)
         setForm({
           ...form,
           name: "",
@@ -58,7 +59,6 @@ export const Form = ()=>{
         min_weight: '',
         max_weight:''
         });
-        alert("Breed created successfully!");
         navigate('/home');
 
       }
@@ -119,7 +119,7 @@ export const Form = ()=>{
               <div>
                 <label>Name:</label>
                 <div className={style.input}>
-                  <input value={form.name}  name="name" onChange={(e) => handleChange(e)} type="text" />
+                  <input placeholder="Dog's Name" value={form.name}  name="name" onChange={(e) => handleChange(e)} type="text" />
                   {errors.name && <span>{errors.name}</span>}
                 </div>  
               </div>
@@ -128,14 +128,14 @@ export const Form = ()=>{
               <div>
                 <label>MinWeight:</label>
                 <div className={style.input}>
-                  <input value={form.min_weight} name="min_weight" onChange={(e) => handleChange(e)}  type="text" />
+                  <input placeholder="Dog's Minimum Weight" value={form.min_weight} name="min_weight" onChange={(e) => handleChange(e)}  type="text" />
                   {errors.min_weight && <span>{errors.min_weight}</span>}
                 </div>
               </div>
               <div>
                 <label>MaxWeight:</label>
                 <div className={style.input}>
-                  <input value={form.max_weight} name="max_weight" onChange={(e) => handleChange(e)}  type="text" />
+                  <input placeholder="Dog's Maximum Weight" value={form.max_weight} name="max_weight" onChange={(e) => handleChange(e)}  type="text" />
                   {errors.max_weight && <span>{errors.max_weight}</span>}
                 </div>  
               </div>
@@ -144,14 +144,14 @@ export const Form = ()=>{
               <div>
                   <label>MinHeight:</label>
                   <div className={style.input}>
-                    <input value={form.min_height}  name="min_height" onChange={(e) => handleChange(e)}  type="text" />
+                    <input placeholder="Dog's Minimum Height" value={form.min_height}  name="min_height" onChange={(e) => handleChange(e)}  type="text" />
                     {errors.min_height && <span>{errors.min_height}</span>}
                   </div>
               </div>
               <div>
                   <label>MaxHeight:</label>
                   <div className={style.input}>
-                    <input value={form.max_height} name="max_height" onChange={(e) => handleChange(e)}  type="text" />
+                    <input placeholder="Dog's Maximum Height" value={form.max_height} name="max_height" onChange={(e) => handleChange(e)}  type="text" />
                     {errors.max_height && <span>{errors.max_height}</span>}
                   </div>
               </div>
@@ -160,29 +160,30 @@ export const Form = ()=>{
               <div>
                   <label>Min Life Span:</label>
                   <div className={style.input}>
-                    <input value={form.min_life_span}  name="min_life_span" onChange={(e) => handleChange(e)}  type="text" />
+                    <input placeholder="Dog's Minimum Life span" value={form.min_life_span}  name="min_life_span" onChange={(e) => handleChange(e)}  type="text" />
                     {errors.min_life_span && <span>{errors.min_life_span}</span>}
                   </div>
               </div>
               <div>
                   <label>Max Life Span:</label>
                   <div className={style.input}>
-                    <input value={form.max_life_span} name="max_life_span" onChange={(e) => handleChange(e)}  type="text" />
+                    <input placeholder="Dog's Maximum Life span" value={form.max_life_span} name="max_life_span" onChange={(e) => handleChange(e)}  type="text" />
                     {errors.max_life_span && <span>{errors.max_life_span}</span>}
                   </div>
               </div>
             </div>
-            <div className={style.flex}>
+            <div className={style.flexTemp}>
               <div className={style.temperaments}>
                 <label>Temperaments:</label>
                 <select onChange={(e)=> handleChangeSel(e)}>
                   {temps?.map(temp=>{return(<option key={temp} value={temp}>{temp}</option>)})}
                 </select>
+                {errors.temperaments && <span>{errors.temperaments}</span>}
               </div>
               <div>
-                  <label>Image</label>
+                  <label>Upload a image</label>
                   <div className={style.inputimg}>
-                    <input onChange={uploadImage} className='modal_pic_input' id="file-input" type="file"/>
+                    <input placeholder="Dog's Minimum Weight" onChange={uploadImage} className='modal_pic_input' id="file-input" type="file"/>
                     {errors.image && <span>{errors.image}</span>}
                   </div>
                 </div>
