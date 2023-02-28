@@ -4,10 +4,23 @@
         border-radius: 100%;
         margin: 1.2px;
         background-color: #E8D5C4;
+        cursor: pointer;
     }
     .buttons{
         margin: 0 10px;
         padding: 6px 8px;
         background-color: #E8D5C4;
+        cursor: pointer;
+    }
+}
+@media (min-width: 768px) {
+    .number{
+        border-radius: 100%;
+        background-color: #E8D5C4;
+        cursor: pointer;
+    }
+    .buttons{
+        background-color: #E8D5C4;
+        cursor: pointer;
     }
 }

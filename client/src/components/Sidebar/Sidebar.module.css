@@ -84,6 +84,7 @@
     padding-top: 10px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 
   }
 }
@@ -125,6 +126,7 @@
   .clear {
     background-color: #fff1dc;
     border: #000 solid 2px;
+    cursor: pointer;
   }
   .SearchBar {
     width: 90%;

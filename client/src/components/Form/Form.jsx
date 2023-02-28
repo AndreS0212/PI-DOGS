@@ -46,20 +46,30 @@ export const Form = ()=>{
           alert('Enter all required fields')
         }
         const resp = await createDog(form)
-        alert(resp)
-        setForm({
-          ...form,
-          name: "",
-        min_height: '',
-        max_height:'',
-        min_life_span: '',
-        max_life_span: '',
-        image: 'https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-m.jpg?tx=w_680',
-        temperaments: [],
-        min_weight: '',
-        max_weight:''
-        });
-        navigate('/home');
+        if(typeof(resp) === 'object' && resp.hasOwnProperty('id')){
+          alert(`${form.name} was created successfully`)
+          setForm({
+            ...form,
+            name: "",
+          min_height: '',
+          max_height:'',
+          min_life_span: '',
+          max_life_span: '',
+          image: 'https://images.hola.com/imagenes/mascotas/20221020219416/razas-perros-toy/1-154-385/razas-de-perro-toy-m.jpg?tx=w_680',
+          temperaments: [],
+          min_weight: '',
+          max_weight:''
+          });
+          navigate(`/detail/${resp.id}`)
+        }else{
+          alert("Dog's name already exists")
+          setForm({
+            ...form,
+            name: "",
+          });
+        }
+
+        
 
       }
       const handleChangeSel= (e)=>{
@@ -114,7 +124,6 @@ export const Form = ()=>{
     return(
         <div className={style.form}>
           <form  onSubmit={(e)=>handleSubmit(e)}>
-          <h1>Creating a new dog!</h1>
             <div className={style.flex}>
               <div>
                 <label>Name:</label>
@@ -192,6 +201,7 @@ export const Form = ()=>{
 
           </form>
           <div className={style.dog}>
+            <h3>Dog Preview</h3>
             <DogPreview form={form} handleDelete={handleDelete}/>
           </div>
         </div>

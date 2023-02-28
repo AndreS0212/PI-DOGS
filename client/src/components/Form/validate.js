@@ -20,7 +20,7 @@ export function validate(form) {
     if (!form.max_life_span) inputErrors.max_life_span = "You must enter a life span";
     else if (letters.test(form.max_life_span)) inputErrors.max_life_span ="Only allowed numbers"
     else if (form.max_life_span.length>=3) inputErrors.max_life_span ="Maximum 2 digits"
-    if (form.min_life_span.length && (parseInt(form.min_life_span) >= parseInt(form.max_life_span) || form.max_life_span <= form.min_life_span)) {
+    if (form.min_life_span.length && (parseInt(form.min_life_span) >= parseInt(form.max_life_span) || parseInt(form.max_life_span) <= parseInt(form.min_life_span))) {
         inputErrors.min_life_span ="Must be lower than maximum life span";
         inputErrors.max_life_span ="Must be higher than minimum life span"
     }
