@@ -1,4 +1,4 @@
-import {GET_DOGS,FILTER_DOGS_BY_ORIGIN,RESET_FILTER, FIND_BY_NAME,SORT_BY_NAME, FILTER_DOGS_BY_TEMP, SORT_BY_MAXWEIGHT,SORT_BY_MINWEIGHT, GET_ALL_TEMPS, GET_DOG_BY_ID, GET_TEMPERAMENTS } from "../actions/types";
+import {GET_DOGS,FILTER_DOGS_BY_ORIGIN,FIND_BY_NAME,SORT_BY_NAME, FILTER_DOGS_BY_TEMP, SORT_BY_MAXWEIGHT,SORT_BY_MINWEIGHT, GET_ALL_TEMPS, GET_DOG_BY_ID, GET_TEMPERAMENTS } from "../actions/types";
 import { findByName  } from "./helpers";
 
 const initialState = {
@@ -30,8 +30,7 @@ const rootReducer = (state = initialState, action) => {
          allTemperaments: action.payload
       }
   case SORT_BY_NAME:
-      let orderedDogs = action.payload ==='ASC' ? state.dogs.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)) : action.payload==='DES' ? state.dogs.sort((b,a) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)) : 'xd'
-      console.log(orderedDogs)
+      let orderedDogs = action.payload ==='ASC' ? state.dogs.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)) : action.payload==='DES' ? state.dogs.sort((b,a) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0)) : ''
       return{
         ...state,
         dogs:[...orderedDogs]
@@ -85,12 +84,6 @@ const rootReducer = (state = initialState, action) => {
                ...state,
                dogs:[...orderedDogsByOrigin]
             }
-   case RESET_FILTER:
-      return{
-         ...state,
-         dogs:state.allDogs,
-         temperaments:state.allTemperaments
-      }
    default:
       return{...state}
   }

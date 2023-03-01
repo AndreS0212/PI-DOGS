@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByTemperament, getDogs, resetFilters } from "../../redux/actions";
+import { filterByTemperament, getDogs } from "../../redux/actions";
 import style from "./Sidebar.module.css";
 import ByName from "./Filters/ByName";
 import SearchBar from "../SearchBar/SearchBar";

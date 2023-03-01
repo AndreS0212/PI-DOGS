@@ -6,8 +6,7 @@ import {    GET_DOGS, GET_TEMPERAMENTS,
     GET_ALL_TEMPS,
     SORT_BY_NAME,
     SORT_BY_MINWEIGHT,
-    SORT_BY_MAXWEIGHT,
-    RESET_FILTER
+    SORT_BY_MAXWEIGHT
   } from "./types";
 import axios from "axios";
 
@@ -89,11 +88,6 @@ export const createDog =async (dog)=>{
         
 
    }
-export const resetFilters =()=>{
-  return function (dispatch){
-    dispatch({type: RESET_FILTER})}
- }
-
 export const getFavorites =()=>{
     
 
