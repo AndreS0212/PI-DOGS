@@ -5,7 +5,6 @@ const initialState = {
   dogs: [],
   temperaments: [],
   details: {},
-  favorites:[],
   allDogs:[],
   allTemperaments: [],
 };
