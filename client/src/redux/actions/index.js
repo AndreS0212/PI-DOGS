@@ -7,7 +7,7 @@ import {    GET_DOGS, GET_TEMPERAMENTS,
     SORT_BY_NAME,
     SORT_BY_MINWEIGHT,
     SORT_BY_MAXWEIGHT,
-    SET_TEMPERAMENTS
+    RESET_FILTER
   } from "./types";
 import axios from "axios";
 
@@ -60,11 +60,6 @@ export const sortByMaxWeight =(order)=>{
     }
 
 }
-export const setTemperaments =()=>{
-  return function(dispatch){
-     dispatch({type : SET_TEMPERAMENTS})
-  }
-}
 export const sortByMinWeight =(order)=>{
   return function(dispatch){
      dispatch({type : SORT_BY_MINWEIGHT , payload: order})
@@ -94,10 +89,10 @@ export const createDog =async (dog)=>{
         
 
    }
-export const addFavorite =()=>{
-    
-
-}
+export const resetFilters =()=>{
+  return function (dispatch){
+    dispatch({type: RESET_FILTER})}
+ }
 
 export const getFavorites =()=>{
     

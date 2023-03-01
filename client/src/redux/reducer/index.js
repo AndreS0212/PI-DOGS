@@ -1,4 +1,4 @@
-import {GET_DOGS,FILTER_DOGS_BY_ORIGIN, FIND_BY_NAME,SORT_BY_NAME, FILTER_DOGS_BY_TEMP, SORT_BY_MAXWEIGHT,SORT_BY_MINWEIGHT, GET_ALL_TEMPS, GET_DOG_BY_ID, GET_TEMPERAMENTS } from "../actions/types";
+import {GET_DOGS,FILTER_DOGS_BY_ORIGIN,RESET_FILTER, FIND_BY_NAME,SORT_BY_NAME, FILTER_DOGS_BY_TEMP, SORT_BY_MAXWEIGHT,SORT_BY_MINWEIGHT, GET_ALL_TEMPS, GET_DOG_BY_ID, GET_TEMPERAMENTS } from "../actions/types";
 import { findByName  } from "./helpers";
 
 const initialState = {
@@ -86,6 +86,12 @@ const rootReducer = (state = initialState, action) => {
                ...state,
                dogs:[...orderedDogsByOrigin]
             }
+   case RESET_FILTER:
+      return{
+         ...state,
+         dogs:state.allDogs,
+         temperaments:state.allTemperaments
+      }
    default:
       return{...state}
   }

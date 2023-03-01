@@ -9,7 +9,7 @@ const dog = {
   name: 'Pug',
 };
 
-describe('Videogame routes', () => {
+describe('Dog routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
@@ -21,4 +21,25 @@ describe('Videogame routes', () => {
       agent.get('/dogs').expect(200)
     );
   });
+  describe("/details/:id", () => {
+    it("Should give a 200 response and show the details of a dog with the id required", (done) => {
+      try {
+        agent
+          .get("/details/71")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .end((err, res) => {
+            if (err) {
+              return done(err);
+            }
+            expect(res.body).to.have.property("id");
+            expect(res.body).to.have.property("name");
+            done();
+          });
+      } catch (error) {
+        done(error);
+      }
+    });
+  });
+  
 });

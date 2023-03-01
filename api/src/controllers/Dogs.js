@@ -62,6 +62,5 @@ module.exports = {
     getDogsApi,
     getDogsDb,
     getDogsAll,
-    createDog,
     createDogDb
   };

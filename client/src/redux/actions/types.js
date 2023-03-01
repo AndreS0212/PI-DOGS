@@ -14,4 +14,4 @@ export const DELETE_FAVORITES = "DELETE_FAVORITES";
 export const SORT_BY_NAME ='SORT_BY_NAME';
 export const GET_ALL_TEMPS = 'GET_ALL_TEMPS'
 export const CREATE_DOG = 'CREATE_DOG';
-export const SET_TEMPERAMENTS = 'SET_TEMPERAMENTS'
+export const RESET_FILTER = 'RESET_FILTER'

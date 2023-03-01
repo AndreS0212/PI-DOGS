@@ -1,7 +1,7 @@
-const { Dog, conn } = require('../../src/db.js');
+const { Temperament, conn } = require('../../src/db.js');
 const { expect } = require('chai');
 
-describe('Dog model', () => {
+describe('Temperament model', () => {
   before(() => conn.authenticate()
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
@@ -10,17 +10,17 @@ describe('Dog model', () => {
     beforeEach(() => Dog.sync({ force: true }));
     describe('name', () => {
       it('should throw an error if name is null', (done) => {
-        Dog.create({})
+        Temperament.create({})
           .then(() => done(new Error('It requires a valid name')))
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
-        Dog.create({ name: 'Pug' });
+        Temperament.create({ name: 'Happy' });
       });
     });
-    it("Throw an error if life span is empty", (done) => {
-      Dog.create({ life_span: "" })
-        .then(() => done(new Error("Dog life span is required")))
+    it("Throw an error if name is a number", (done) => {
+        Temperament.create({ name: 345 })
+        .then(() => done(new Error("Dog name need to be a string")))
         .catch(() => done());
     });
   });

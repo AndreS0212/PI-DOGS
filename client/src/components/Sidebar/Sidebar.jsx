@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByTemperament } from "../../redux/actions";
+import { filterByTemperament, getDogs, resetFilters } from "../../redux/actions";
 import style from "./Sidebar.module.css";
 import ByName from "./Filters/ByName";
 import SearchBar from "../SearchBar/SearchBar";
@@ -14,9 +14,11 @@ export default function Sidebar() {
   const page = useSelector((state) => state.currentPage);
   const [pageNumber, setPageNumber] = useState(page);
   const [isOpen, setIsOpen] = useState(false);
-  function handleClick(e) {
+  function handleClick  () {
     //e es evento
-    window.location.reload();
+    dispatch(getDogs());
+    setFilteredTemps([])
+
   }
 
   const allDogs = useSelector((state) => state.dogs);
