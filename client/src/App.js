@@ -5,6 +5,7 @@ import { Route,Routes } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage';
 import CardDetails from './components/CardDetails/CardDetails';
 import { Form } from './components/Form/Form';
+import NotFound from './components/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/home' element={<Home/>}/>
         <Route exact path='/detail/:id' element={<CardDetails/>}/>
         <Route exact path='/form' element={<Form/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   );
